@@ -2,6 +2,8 @@ This is a simple demonstration application used in the [Jenkins: The Definitive 
 
 ## Building the project
 
+[![Build Status](https://travis-ci.org/BPSD-2017-P1702BT/game-of-life.svg?branch=master)](https://travis-ci.org/BPSD-2017-P1702BT/game-of-life)
+
 The project is a simple multi-module Maven project. To build the whole project, just run `mvn install` from the root directory.
 
 ## Running the game
