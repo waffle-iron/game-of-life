@@ -1,4 +1,19 @@
 language: java
+sudo: false
+install: true
+addons:
+  sonarqube:
+    organization: "bpsd-2017"
+    token:
+      secure: "Ih5XW/yk2BrrZuXln/4J4s3XkZzzckfIKKumAhmE4TKvYrJEJkDOBOGiAMxzf6G5Qu73syjfREtOAEvi+5sfOFeuDw+n6IxsBjOOEZSMWGmPfs03T7ltS/gLYZr+LqXMtKOdTMQK9828HxLurVbqagO9G7UIk0NsGFSuO7OiZCONkRMbumF9WvxRekYO5pGywvJbPjfXp8Ss53n9OaGy+BLs6Fu2iLFHZ2CaCA87jPfc8KpZAt6MLiYiVAWbk0A0IaUhlKa4ha0658jI3UPwyiU4IQFrjBwl4Beros6CJBLt8dHtK9w/Qa/TGGeEIB2UIMzlNe7ZEO9mzZ5cug2IIUzM7cQrBndQIW7sDlMEUnEyEqrMyYIYug93bVFxOl5b0bDK0F9mqkH1hNoFbJlV7lejhStAi1tZRmGiJy5EH7dSuEp/TUmW2/rCM3wS4x+HSf2X8Ia39NX+YHSPH0tnrR0mgIVU6przUwU1WIDMRycBegTfiUl3MWyR+l3Tv8qz79AGUPMJvd8pm6648/C8U8gZHeTQYsBJy8gxvNThhi+yy8GTX+JGOnjcUPJtJf5Qamf5X88aBZEZOx+JazaO36rQG/qV5HQTqs/V7tkJ/3Z9a2o9zz6DAT+L/RgHaOMBDrZv4Rn5IVg7GNW2WWVym/SBYsYBgvD09FwT5S2z2WA="
+jdk:
+  - oraclejdk8
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
 notifications:
   slack:
     secure: lcULzWuPv4frP/25w93+VovHC4Ihh6kUOC97/U+l6Av+zahpflMQA4WXEeFXBIn5XjqmKHF5FmjoLGnMW2+qQja18bVdeyvfc3P6lECJAn/er/dR/RRlon77cSFhbomHKU2+suuHd830KAFg4U04eYBFRtdqh3YFln3BT7l7yn6HIRZb7r3pj2pUCxbUwTCacTN1Jgdnx4XH7llgvBlHSCfs7qcKX1visgWRhPuxrUwz9/ZdXJ6qDdqauuCufxDiMEoLIvgBmZlEoHfckJAb3FDJZKOVWe6vL5+qQLU/16MfzA5oyrTGjoq2eBpg2QKJlUckWCpxfjdi5d1CVdzKt/F8RVJNUPPuui2Zqiet5DhPruud5jgfOVCNaq1ilQcfLhvQBcRIsezYUJkLt1R/KuAhaj99SMk3vCRyRb8ON04U3pd9teboQnLzuAg2FkEgS+RAVjc/uRq680u7EbHkIs8JbeFTSv1yY6ke1Nk5cgJlCOCvkd9RRMdxrENubTDcIuyvaugKVlFAH+R505pIcBNisURZNL00Tp2PuyBGV+Fw2514BotUp2MUFVBed45YxwQrBaWsaebV1POvQEk+whAUKDfV81Mw2iwxXDLLwxGPNnqMWlyzzblrBLAUUsyTOIuJrHjKo6LuesYgnsnbqAveF9jj7hR8mCDYjKA9ol0=
